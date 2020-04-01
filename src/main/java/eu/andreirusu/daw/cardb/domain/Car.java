@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
+//@JsonAutoDetect
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
