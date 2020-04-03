@@ -12,6 +12,8 @@ import eu.andreirusu.daw.cardb.domain.Car;
 import eu.andreirusu.daw.cardb.domain.CarRepository;
 import eu.andreirusu.daw.cardb.domain.Owner;
 import eu.andreirusu.daw.cardb.domain.OwnerRepository;
+import eu.andreirusu.daw.cardb.domain.User;
+import eu.andreirusu.daw.cardb.domain.UserRepository;
 
 @SpringBootApplication
 public class Daw07aApplication {
@@ -21,6 +23,9 @@ public class Daw07aApplication {
 
 	@Autowired
 	private OwnerRepository ownerRepository;
+
+	@Autowired
+	private UserRepository userRepository;
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(Daw07aApplication.class);
@@ -50,6 +55,15 @@ public class Daw07aApplication {
 					new Car("Nissan", "Leaf", "White", "SSJ-3002", 2014, 29000, owner2));
 			carRepository.save(new Car("Toyota", "Prius", "Silver", "KKO-0212", 2018,
 					39000, owner2));
+
+			// username: user password: user
+			userRepository.save(new User("user",
+					"$2a$04$1.YhMIgNX/8TkCKGFUONWO1waedKhQ5KrnB30fl0Q01QKqmzLf.Zi",
+					"USER"));
+			// username: admin password: admin
+			userRepository.save(new User("admin",
+					"$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG",
+					"ADMIN"));
 		};
 	}
 }
