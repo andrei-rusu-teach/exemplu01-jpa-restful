@@ -7,18 +7,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import eu.andreirusu.daw.cardb.domain.User;
-import eu.andreirusu.daw.cardb.domain.UserRepository;
+import eu.andreirusu.daw.cardb.domain.Userr;
+import eu.andreirusu.daw.cardb.domain.UserrRepository;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 	@Autowired
-	private UserRepository repository;
+	private UserrRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		User currentUser = repository.findByUsername(username);
+		Userr currentUser = repository.findByUsername(username);
 		UserDetails user = new org.springframework.security.core.userdetails.User(
 				username, currentUser.getPassword(), true, true, true, true,
 				AuthorityUtils.createAuthorityList(currentUser.getRole()));

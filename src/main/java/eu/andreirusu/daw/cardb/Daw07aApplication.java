@@ -12,8 +12,8 @@ import eu.andreirusu.daw.cardb.domain.Car;
 import eu.andreirusu.daw.cardb.domain.CarRepository;
 import eu.andreirusu.daw.cardb.domain.Owner;
 import eu.andreirusu.daw.cardb.domain.OwnerRepository;
-import eu.andreirusu.daw.cardb.domain.User;
-import eu.andreirusu.daw.cardb.domain.UserRepository;
+import eu.andreirusu.daw.cardb.domain.Userr;
+import eu.andreirusu.daw.cardb.domain.UserrRepository;
 
 @SpringBootApplication
 public class Daw07aApplication {
@@ -25,7 +25,7 @@ public class Daw07aApplication {
 	private OwnerRepository ownerRepository;
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserrRepository userRepository;
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(Daw07aApplication.class);
@@ -57,11 +57,11 @@ public class Daw07aApplication {
 					39000, owner2));
 
 			// username: user password: user
-			userRepository.save(new User("user",
+			userRepository.save(new Userr("user",
 					"$2a$04$1.YhMIgNX/8TkCKGFUONWO1waedKhQ5KrnB30fl0Q01QKqmzLf.Zi",
 					"USER"));
 			// username: admin password: admin
-			userRepository.save(new User("admin",
+			userRepository.save(new Userr("admin",
 					"$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG",
 					"ADMIN"));
 		};
