@@ -12,6 +12,7 @@ import eu.andreirusu.daw.cardb.service.UserDetailServiceImpl;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
 	@Autowired
 	private UserDetailServiceImpl userDetailsService;
 
