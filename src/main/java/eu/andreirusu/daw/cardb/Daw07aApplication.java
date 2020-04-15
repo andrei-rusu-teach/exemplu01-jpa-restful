@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 import eu.andreirusu.daw.cardb.domain.Car;
@@ -14,7 +16,7 @@ import eu.andreirusu.daw.cardb.domain.Owner;
 import eu.andreirusu.daw.cardb.domain.OwnerRepository;
 
 @SpringBootApplication
-public class Daw07aApplication {
+public class Daw07aApplication extends SpringBootServletInitializer {
 
 	@Autowired
 	private CarRepository carRepository;
@@ -24,6 +26,12 @@ public class Daw07aApplication {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(Daw07aApplication.class);
+
+	@Override
+	protected SpringApplicationBuilder configure(
+			SpringApplicationBuilder application) {
+		return application.sources(Daw07aApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(Daw07aApplication.class, args);
@@ -52,4 +60,5 @@ public class Daw07aApplication {
 					39000, owner2));
 		};
 	}
+
 }
